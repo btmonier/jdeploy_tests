@@ -20,7 +20,7 @@ IF NOT [%1]==[] GOTO top
 set TOP=.
 set LIB_JARS=%TOP%\lib
 
-set CP=%TOP%\sTASSEL.jar
+set CP=%TOP%\dist\sTASSEL.jar
 for %%i in (%LIB_JARS%\*.jar) do call "%TOP%\cp.bat" %%i
 echo %CP%
 

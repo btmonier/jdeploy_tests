@@ -1,5 +1,5 @@
-# jDeploy Tests
+### TASSEL source repository and docs for users and developers ###
 
-Simple repository to test out jDeploy with GitHub actions. This
-will distribute native installers via GitHub Releases across macOS,
-Windows, and Linux.
+* [General overview of docs](https://bitbucket.org/tasseladmin/tassel-5-source/wiki)
+* [Source](https://bitbucket.org/tasseladmin/tassel-5-source/src)
+* [Latest Builds](http://www.maizegenetics.net/tassel/)

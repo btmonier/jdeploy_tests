@@ -1,6 +1,7 @@
-target
-node_modules
-jdeploy
-jdeploy-bundle
-jdeploy_bundle
+.DS_Store
+*.iml
+dist
+build
 .idea
+classes
+/bin/
