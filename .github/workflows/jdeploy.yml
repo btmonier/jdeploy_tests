@@ -30,36 +30,30 @@ jobs:
             dependency:copy-dependencies \
             -DoutputDirectory=lib
 
-      - name: Print contents (dist)
-        run: ls -alh dist/
-
-      - name: Print contents (lib)
-        run: ls -alh lib/
-
       - name: Create TASSEL "Standalone" distribution
         run: |
           mkdir -p dist/tassel-5-standalone
           cp -r lib/ dist/tassel-5-standalone/
           cp dist/sTASSEL.jar dist/tassel-5-standalone/
           cp \
-            *.pl \
-            *.bat \
+            scripts/*.pl \
+            scripts/*.bat \
             dist/tassel-5-standalone/
 
           cd dist/tassel-5-standalone
 
-          # Fix Perl launch scripts
+          # Modify Perl launch scripts for "Standalone"
           for f in start_tassel.pl run_pipeline.pl; do
             sed -i.bak 's|push(@fl, "\$top/dist/sTASSEL.jar");|push(@fl, "\$top/sTASSEL.jar");|' "$f"
           done
 
-          # Fix Batch launch scripts
+          # Modify Batch launch scripts for "Standalone"
           for f in start_tassel.bat run_pipeline.bat; do
-            sed -i.bak 's|set CP=%TOP%\\dist\\sTASSEL.jar|;set CP=%TOP%\\sTASSEL.jar|' "$f"
+            sed -i.bak 's|set CP=%TOP%\\dist\\sTASSEL.jar|set CP=%TOP%\\sTASSEL.jar|' "$f"
           done
 
-      - name: Print contents (standalone)
-        run: ls -alh dist/tassel-5-standalone/
+          # Remove .bak files
+          rm -f *.bak
 
       - name: Archive TASSEL Standalone (ZIP and TAR.GZ)
         run: |
