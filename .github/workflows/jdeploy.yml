@@ -27,7 +27,7 @@ jobs:
         run: mvn clean package -Dmaven.test.skip=true
 
       - name: Print contents
-        run: ls -alh
+        run: ls -alh dist/
 
       # - name: Build App Installer Bundles
       #   uses: shannah/jdeploy@master
