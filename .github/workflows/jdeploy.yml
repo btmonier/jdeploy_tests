@@ -58,6 +58,10 @@ jobs:
           zip -r ../tassel-5-standalone-v${VERSION}.zip .
           tar -czf ../tassel-5-standalone-v${VERSION}.tar.gz .
 
+      - name: Prepare Release Notes from Template
+        run: |
+          sed "s/\${VERSION}/${VERSION}/g" .github/release_template.md > RELEASE_NOTES.md
+
       - name: Read Release Notes
         id: read_notes
         run: |
