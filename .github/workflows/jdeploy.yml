@@ -1,16 +1,15 @@
-# This workflow will build a Java project with Maven and bundle them as native app installers with jDeploy
-# See https://www.jdeploy.com for more information.
-
 name: jDeploy CI with Maven
 
 on:
   push:
-    branches: ['*']
-    tags: ['*']
+    paths:
+      - VERSION
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -22,6 +21,10 @@ jobs:
           java-version: '8'
           distribution: 'temurin'
           cache: maven
+
+      - name: Read version from VERSION file
+        id: read_version
+        run: echo "VERSION=$(cat VERSION)" >> $GITHUB_ENV
 
       - name: Build with Maven
         run: |
@@ -35,31 +38,25 @@ jobs:
           mkdir -p dist/tassel-5-standalone
           cp -r lib/ dist/tassel-5-standalone/
           cp dist/sTASSEL.jar dist/tassel-5-standalone/
-          cp \
-            scripts/*.pl \
-            scripts/*.bat \
-            dist/tassel-5-standalone/
+          cp scripts/*.pl scripts/*.bat dist/tassel-5-standalone/
 
           cd dist/tassel-5-standalone
 
-          # Modify Perl launch scripts for "Standalone"
           for f in start_tassel.pl run_pipeline.pl; do
             sed -i.bak 's|push(@fl, "\$top/dist/sTASSEL.jar");|push(@fl, "\$top/sTASSEL.jar");|' "$f"
           done
 
-          # Modify Batch launch scripts for "Standalone"
           for f in start_tassel.bat run_pipeline.bat; do
             sed -i.bak 's|set CP=%TOP%\\dist\\sTASSEL.jar|set CP=%TOP%\\sTASSEL.jar|' "$f"
           done
 
-          # Remove .bak files
           rm -f *.bak
 
       - name: Archive TASSEL Standalone (ZIP and TAR.GZ)
         run: |
           cd dist/tassel-5-standalone/
-          zip -r ../tassel-5-standalone.zip .
-          tar -czf ../tassel-5-standalone.tar.gz .
+          zip -r ../tassel-5-standalone-v${VERSION}.zip .
+          tar -czf ../tassel-5-standalone-v${VERSION}.tar.gz .
 
       - name: Read Release Notes
         id: read_notes
@@ -75,8 +72,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.ref_name }}
-          release_name: TASSEL Release ${{ github.ref_name }}
+          tag_name: v${{ env.VERSION }}
+          release_name: TASSEL v${{ env.VERSION }}
           body: ${{ env.RELEASE_NOTES }}
           draft: false
           prerelease: false
@@ -87,8 +84,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: dist/tassel-5-standalone.zip
-          asset_name: tassel-5-standalone.zip
+          asset_path: dist/tassel-5-standalone-v${{ env.VERSION }}.zip
+          asset_name: tassel-5-standalone-v${{ env.VERSION }}.zip
           asset_content_type: application/zip
 
       - name: Upload TAR.GZ Asset
@@ -97,11 +94,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: dist/tassel-5-standalone.tar.gz
-          asset_name: tassel-5-standalone.tar.gz
+          asset_path: dist/tassel-5-standalone-v${{ env.VERSION }}.tar.gz
+          asset_name: tassel-5-standalone-v${{ env.VERSION }}.tar.gz
           asset_content_type: application/gzip
 
-      # - name: Build App Installer Bundles
-      #   uses: shannah/jdeploy@master
-      #   with:
-      #     github_token: ${{ github.token }}
