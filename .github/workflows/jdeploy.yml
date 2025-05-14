@@ -26,8 +26,11 @@ jobs:
       - name: Build with Maven
         run: mvn clean package -Dmaven.test.skip=true dependency:copy-dependencies -DoutputDirectory=lib
 
-      - name: Print contents
+      - name: Print contents (dist)
         run: ls -alh dist/
+
+      - name: Print contents (dist)
+        run: ls -alh lib/
 
       # - name: Build App Installer Bundles
       #   uses: shannah/jdeploy@master
