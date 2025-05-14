@@ -46,11 +46,13 @@ jobs:
             *.bat \
             dist/tassel-5-standalone/
 
+          cd dist/tassel-5-standalone
+
           # Fix Perl launch scripts
           for f in start_tassel.pl run_pipeline.pl run_anything.pl; do
             sed -i.bak 's|push(@fl, "\$top/dist/sTASSEL.jar");|push(@fl, "\$top/sTASSEL.jar");|' "$f"
           done
-  
+
           # Fix Batch launch scripts
           for f in start_tassel.bat run_pipeline.bat run_anything.bat; do
             sed -i.bak 's|set CP=%TOP%\\dist\\sTASSEL.jar|;set CP=%TOP%\\sTASSEL.jar|' "$f"
