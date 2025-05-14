@@ -49,15 +49,11 @@ jobs:
       - name: Print contents (standalone)
         run: ls -alh dist/tassel-5-standalone/
 
-      - name: Archive TASSEL Standalone as ZIP
+      - name: Archive TASSEL Standalone (ZIP and TAR.GZ)
         run: |
-          cd dist/tassel-5-standalone
-          zip -r ../dist/tassel-5-standalone.zip .
-
-      - name: Archive TASSEL Standalone as TAR.GZ
-        run: |
-          cd dist/tassel-5-standalone
-          tar -czf ../dist/tassel-5-standalone.tar.gz .
+          cd dist/tassel-5-standalone/
+          zip -r ../tassel-5-standalone.zip .
+          tar -czf ../tassel-5-standalone.tar.gz .
 
       - name: Upload ZIP Asset
         uses: actions/upload-release-asset@v1
