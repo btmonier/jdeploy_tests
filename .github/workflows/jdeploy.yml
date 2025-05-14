@@ -29,8 +29,21 @@ jobs:
       - name: Print contents (dist)
         run: ls -alh dist/
 
-      - name: Print contents (dist)
+      - name: Print contents (lib)
         run: ls -alh lib/
+
+      - name: Create TASSEL "Standalone" distribution
+        run: |
+          mkdir -p dist/tassel-5-standalone
+          cp -r lib/ dist/tassel-5-standalone/
+          cp dist/sTASSEL.jar dist/tassel-5-standalone/
+          cp \
+            *.pl \
+            *.bat \
+            dist/tassel-5-standalone/
+
+      - name: Print contents (standalone)
+        run: ls -alh dist/tassel-5-standalone/
 
       # - name: Build App Installer Bundles
       #   uses: shannah/jdeploy@master
