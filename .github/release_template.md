@@ -11,6 +11,6 @@
 - [Linux (**x64**)]()
 
 ### Standalone
-- [TASSEL Standalone (**Windows**)](https://github.com/btmonier/jdeploy_tests/releases/download/v${VERSION}/tassel-5-standalone-v${VERSION}.zip)
-- [TASSEL Standalone (**macOS/Linux**)](https://github.com/btmonier/jdeploy_tests/releases/download/v${VERSION}/tassel-5-standalone-v${VERSION}.tar.gz)
+- [TASSEL Standalone (**Windows**)](https://github.com/btmonier/jdeploy_tests/releases/download/v${VERSION}/tassel-5-standalone-v${{ env.VERSION }}.zip)
+- [TASSEL Standalone (**macOS/Linux**)](https://github.com/btmonier/jdeploy_tests/releases/download/v${VERSION}/tassel-5-standalone-v${{ env.VERSION }}.tar.gz)
 
