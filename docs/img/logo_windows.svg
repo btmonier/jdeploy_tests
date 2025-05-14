@@ -1,6 +1,59 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-  <title>microsoft_windows</title>
-  <rect width="24" height="24" fill="none"/>
-  <path d="M3,12V6.75L9,5.43v6.48L3,12M20,3v8.75L10,11.9V5.21L20,3M3,13l6,.09V19.9L3,18.75V13m17,.25V22L10,20.09v-7Z"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="22.36842"
+   height="25"
+   viewBox="0 0 0.67105259 0.75"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="logo_windows.svg"
+   inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.91125"
+     inkscape:cx="299.58848"
+     inkscape:cy="300.13717"
+     inkscape:window-width="1872"
+     inkscape:window-height="954"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg1" />
+  <title
+     id="title1">microsoft_windows</title>
+  <rect
+     width="24"
+     height="24"
+     fill="none"
+     id="rect1"
+     x="-3"
+     y="-3" />
+  <path
+     d="M 0,0.3552632 V 0.1480263 L 0.2368421,0.0959211 V 0.3517105 L 0,0.3552605 M 0.6710526,0 v 0.3453947 l -0.3947368,0.00592 V 0.0872369 L 0.6710526,0 M 0,0.3947368 0.2368421,0.3982895 V 0.6671052 L 0,0.6217105 V 0.3947368 m 0.6710526,0.00987 V 0.75 L 0.2763158,0.6746052 V 0.3982895 Z"
+     id="path1"
+     style="stroke-width:0.999999" />
+  <metadata
+     id="metadata1">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>microsoft_windows</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
 </svg>
