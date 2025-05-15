@@ -90,12 +90,15 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Install jDeploy CLI
-        run: npm install -g jdeploy
+      - name: Copy app contents into project root for jDeploy
+        run: cp -r dist/tassel-5-standalone/* .
 
-      - name: Build jDeploy native installers
-        run: |
-          cp -r dist/tassel-5-standalone/* .
-          jdeploy
+      - name: Build App Installer Bundles
+        uses: shannah/jdeploy@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Print contents
+        run: ls -alh
 
 
