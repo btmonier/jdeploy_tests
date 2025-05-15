@@ -90,23 +90,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # - name: Upload ZIP Asset
-      #   uses: actions/upload-release-asset@v1
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #   with:
-      #     upload_url: ${{ steps.create_release.outputs.upload_url }}
-      #     asset_path: dist/tassel-5-standalone-v${{ env.VERSION }}.zip
-      #     asset_name: tassel-5-standalone-v${{ env.VERSION }}.zip
-      #     asset_content_type: application/zip
+      - name: Install jDeploy CLI
+        run: npm install -g jdeploy
 
-      # - name: Upload TAR.GZ Asset
-      #   uses: actions/upload-release-asset@v1
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #   with:
-      #     upload_url: ${{ steps.create_release.outputs.upload_url }}
-      #     asset_path: dist/tassel-5-standalone-v${{ env.VERSION }}.tar.gz
-      #     asset_name: tassel-5-standalone-v${{ env.VERSION }}.tar.gz
-      #     asset_content_type: application/gzip
+      - name: Build jDeploy native installers
+        run: |
+          cp -r dist/tassel-5-standalone/* .
+          jdeploy
+
 

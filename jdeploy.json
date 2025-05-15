@@ -1,0 +1,17 @@
+{
+  "appId": "tassel",
+  "mainJar": "sTASSEL.jar",
+  "javaVersion": "8+",
+  "jdkUrl": "https://download.java.net/java/GA/jdk8/9/GPL/openjdk-8u41-b04-linux-x64.zip",
+  "jvmArgs": [],
+  "libs": [
+    "lib/*"
+  ],
+  "nativeBundles": true,
+  "installers": {
+    "mac": true,
+    "win": true,
+    "linux": true
+  }
+}
+
