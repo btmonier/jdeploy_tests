@@ -98,8 +98,18 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Print contents
-        run: ls -alh
+      - name: Rename jDeploy installer files
+        run: |
+          for f in jdeploy/github-release-files/TASSEL.5.Installer-*; do
+            # Extract platform and extension
+            base=$(basename "$f")
+            platform=$(echo "$base" | sed -E 's/^TASSEL\.5\.Installer-([^@]+)@.*$/\1/')
+            ext="${f##*.}"
+
+            # Rename the file
+            new_name="tassel-5-installer-${platform}-v${VERSION}.${ext}"
+            mv "$f" "jdeploy/github-release-files/${new_name}"
+          done
 
       - name: Upload jDeploy Installers to Existing Release
         run: |
