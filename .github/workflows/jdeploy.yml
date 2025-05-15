@@ -101,4 +101,9 @@ jobs:
       - name: Print contents
         run: ls -alh
 
+      - name: Upload jDeploy Installers to Existing Release
+        run: |
+          gh release upload "v${VERSION}" jdeploy/github-release-files/* --clobber
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
