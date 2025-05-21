@@ -107,7 +107,7 @@ jobs:
             ext="${f##*.}"
 
             # Rename the file
-            new_name="tassel-5-installer-${platform}-v${VERSION}.${ext}"
+            new_name="tassel-5-installer-${platform}v${VERSION}.${ext}"
             mv "$f" "jdeploy/github-release-files/${new_name}"
           done
 
