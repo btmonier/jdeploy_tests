@@ -1,6 +1,6 @@
 ## 🚀 Release Highlights
 
-- _WIP_
+_x_
 
 ## 📦 Downloads
 

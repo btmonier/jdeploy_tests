@@ -58,16 +58,10 @@ jobs:
           zip -r ../tassel-5-standalone-v${VERSION}.zip .
           tar -czf ../tassel-5-standalone-v${VERSION}.tar.gz .
 
-      - name: Generate Release Notes with version
+      - name: Generate release notes with injected highlights
         run: |
-          sed "s/\\\${VERSION}/${VERSION}/g" .github/release_template.md > RELEASE_NOTES.md
-
-      - name: Read processed release notes into env
-        id: read_notes
-        run: |
-          echo "RELEASE_NOTES<<EOF" >> $GITHUB_ENV
-          cat RELEASE_NOTES.md >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
+          NOTES=$(<release_notes.md)
+          sed "s|_x_|$NOTES|" .github/release_template.md > release_notes.md
 
       - name: Create GitHub Release
         id: create_release

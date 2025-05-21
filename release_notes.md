@@ -1,0 +1,4 @@
+- Major update to feature X
+- Fixed bug in Y
+- Reticulated splines
+- Improved performance of Z
