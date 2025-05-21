@@ -1,6 +1,6 @@
 {
   "bin": {"sTASSEL": "jdeploy-bundle/jdeploy.js"},
-  "author": "Buckler Lab",
+  "author": "bucklerlab",
   "description": "Trait Analysis by aSSociation, Evolution and Linkage",
   "main": "index.js",
   "preferGlobal": true,
@@ -14,7 +14,7 @@
     "files" : [
         {"dir" : "dist", "includes": "lib/*.dll,lib/*.so,lib/*.dylib"}
     ],
-    "title": "TASSEL 5"
+    "title": "TASSEL_5"
   },
   "dependencies": {
     "command-exists-promise": "^2.0.2",
@@ -23,7 +23,7 @@
     "yauzl": "^2.10.0",
     "shelljs": "^0.8.4"
   },
-  "name": "TASSEL 5",
+  "name": "TASSEL_5",
   "files": ["jdeploy-bundle"],
   "scripts": {"test": "echo \"Error: no test specified\" && exit 1"}
 }
