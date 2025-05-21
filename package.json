@@ -14,6 +14,7 @@
     "files" : [
         {"dir" : "dist", "includes": "lib/*.dll,lib/*.so,lib/*.dylib"}
     ],
+    "icon": "docs/img/icon.png",
     "title": "TASSEL 5"
   },
   "dependencies": {
@@ -23,7 +24,7 @@
     "yauzl": "^2.10.0",
     "shelljs": "^0.8.4"
   },
-  "name": "sTASSELtest",
+  "name": "TASSEL 5",
   "files": ["jdeploy-bundle"],
   "scripts": {"test": "echo \"Error: no test specified\" && exit 1"}
 }
