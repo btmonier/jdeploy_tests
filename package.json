@@ -1,11 +1,11 @@
 {
   "bin": {"sTASSEL": "jdeploy-bundle/jdeploy.js"},
-  "author": "btmonier",
-  "description": "TASSEL jDeploy Test",
+  "author": "Buckler Lab",
+  "description": "Trait Analysis by aSSociation, Evolution and Linkage",
   "main": "index.js",
   "preferGlobal": true,
-  "repository": "",
-  "version": "1.0.9",
+  "repository": "https://www.github.com/btmonier/jdeploy_tests/",
+  "version": "1.0.0",
   "jdeploy": {
     "jdk": false,
     "javaVersion": "8",
@@ -14,7 +14,6 @@
     "files" : [
         {"dir" : "dist", "includes": "lib/*.dll,lib/*.so,lib/*.dylib"}
     ],
-    "icon": "docs/img/icon.png",
     "title": "TASSEL 5"
   },
   "dependencies": {
