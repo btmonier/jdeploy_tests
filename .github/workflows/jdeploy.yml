@@ -100,10 +100,10 @@ jobs:
 
       - name: Rename jDeploy installer files
         run: |
-          for f in jdeploy/github-release-files/TASSEL.5.Installer-*; do
+          for f in jdeploy/github-release-files/TASSEL_5.Installer-*; do
             # Extract platform and extension
             base=$(basename "$f")
-            platform=$(echo "$base" | sed -E 's/^TASSEL\.5\.Installer-([^@]+)@.*$/\1/')
+            platform=$(echo "$base" | sed -E 's/^TASSEL_5\.Installer-([^@]+)@.*$/\1/')
             ext="${f##*.}"
 
             # Rename the file
