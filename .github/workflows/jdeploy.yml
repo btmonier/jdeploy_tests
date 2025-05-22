@@ -58,10 +58,12 @@ jobs:
           zip -r ../tassel-5-standalone-v${VERSION}.zip .
           tar -czf ../tassel-5-standalone-v${VERSION}.tar.gz .
 
-      - name: Generate release notes with injected highlights
+      - name: Inject release_notes.md into release_template.md
         run: |
-          NOTES=$(<release_notes.md)
-          sed "s|_x_|$NOTES|" .github/release_template.md > release_notes.md
+          awk -v notes="$(cat release_notes.md)" '{
+            gsub("_x_", notes)
+            print
+          }' .github/release_template.md > RELEASE_NOTES.md
 
       - name: Create GitHub Release
         id: create_release
