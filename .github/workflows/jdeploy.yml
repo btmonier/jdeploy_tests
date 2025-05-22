@@ -58,12 +58,17 @@ jobs:
           zip -r ../tassel-5-standalone-v${VERSION}.zip .
           tar -czf ../tassel-5-standalone-v${VERSION}.tar.gz .
 
-      - name: Inject release_notes.md into release_template.md
+      - name: Inject notes using envsubst
         run: |
-          awk -v notes="$(cat release_notes.md)" '{
-            gsub("_x_", notes)
-            print
-          }' .github/release_template.md > RELEASE_NOTES.md
+          export NOTES="$(cat release_notes.md)"
+          envsubst < .github/release_template.md > RELEASE_NOTES.md
+
+      - name: Load processed release notes
+        id: read_notes
+        run: |
+          echo "RELEASE_NOTES<<EOF" >> $GITHUB_ENV
+          cat RELEASE_NOTES.md >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
 
       - name: Create GitHub Release
         id: create_release

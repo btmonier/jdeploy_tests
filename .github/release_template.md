@@ -1,6 +1,6 @@
 ## 🚀 Release Highlights
 
-_x_
+${NOTES}
 
 ## 📦 Downloads
 
